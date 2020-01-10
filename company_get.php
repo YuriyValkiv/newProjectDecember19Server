@@ -14,8 +14,7 @@ if($result = mysqli_query($con,$sql))
     {
         $characteristics[$i]['id'] = $row['id'];
         $characteristics[$i]['characteristic'] = $row['characteristic'];
-        $characteristics[$i]['value'] = $row['value'];
-        $characteristics[$i]['icon'] = $row['icon'];
+        $characteristics[$i]['characteristic_value'] = $row['characteristic_value'];
         $i++;
     }
 
