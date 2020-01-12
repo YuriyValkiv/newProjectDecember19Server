@@ -11,25 +11,25 @@ if(isset($postdata) && !empty($postdata))
 
 
     // Validate.
-    if(trim($request->contact) === '' || trim($request->contact_type) === '')
+    if(trim($request->notification) === '')
     {
         return http_response_code(400);
     }
 
     // Sanitize.
-    $contact = mysqli_real_escape_string($con, trim($request->contact));
-    $contact_type = mysqli_real_escape_string($con, trim($request->contact_type));
+    $notification = mysqli_real_escape_string($con, trim($request->notification));
+    $notification_date = date('m/d/Y h:i:s a', time());
 
 
     // Create.
-    $sql = "INSERT INTO `contacts`(`id`,`contact`, `contact_type`) VALUES (null,'{$contact}','{$contact_type}')";
+    $sql = "INSERT INTO `notifications`(`id`,`notification`, `notification_date`) VALUES (null,'{$notification}','{$notification_date}')";
 
     if(mysqli_query($con,$sql))
     {
         http_response_code(201);
         $policy = [
-            'contact' => $contact,
-            'contact_type' => $contact_type,
+            'notification' => $notification,
+            'notification_date' => $notification_date,
             'id'    => mysqli_insert_id($con)
         ];
         echo json_encode($policy);

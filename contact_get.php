@@ -14,6 +14,7 @@ if($result = mysqli_query($con,$sql))
     {
         $contacts[$i]['id'] = $row['id'];
         $contacts[$i]['contact'] = $row['contact'];
+        $contacts[$i]['contact_type'] = $row['contact_type'];
         $i++;
     }
 
