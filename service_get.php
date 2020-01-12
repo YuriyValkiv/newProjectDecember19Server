@@ -14,6 +14,7 @@ if($result = mysqli_query($con,$sql))
     {
         $services[$i]['id'] = $row['id'];
         $services[$i]['service_name'] = $row['service_name'];
+        $services[$i]['service_type'] = $row['service_type'];
         $i++;
     }
 

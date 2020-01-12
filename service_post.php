@@ -11,23 +11,25 @@ if(isset($postdata) && !empty($postdata))
 
 
     // Validate.
-    if(trim($request->service_name) === '')
+    if(trim($request->service_name) === '' || trim($request->service_type) === '')
     {
         return http_response_code(400);
     }
 
     // Sanitize.
     $service_name = mysqli_real_escape_string($con, trim($request->service_name));
+    $service_type = mysqli_real_escape_string($con, trim($request->service_type));
 
 
     // Create.
-    $sql = "INSERT INTO `services`(`id`,`service_name`) VALUES (null,'{$service_name}')";
+    $sql = "INSERT INTO `services`(`id`,`service_name`,`service_type`) VALUES (null,'{$service_name}','{$service_type}')";
 
     if(mysqli_query($con,$sql))
     {
         http_response_code(201);
         $policy = [
             'service_name' => $service_name,
+            'service_type' => $service_type,
             'id'    => mysqli_insert_id($con)
         ];
         echo json_encode($policy);
