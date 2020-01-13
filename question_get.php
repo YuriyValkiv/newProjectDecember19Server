@@ -17,6 +17,7 @@ if($result = mysqli_query($con,$sql))
         $questions[$i]['question'] = $row['question'];
         $questions[$i]['question_date'] = $row['question_date'];
         $questions[$i]['answer'] = $row['answer'];
+        $questions[$i]['answer_date'] = $row['answer_date'];
         $i++;
     }
 

@@ -20,13 +20,14 @@ if(isset($postdata) && !empty($postdata))
     // Sanitize.
     $question_author = mysqli_real_escape_string($con, trim($request->question_author));
     $question = mysqli_real_escape_string($con, trim($request->question));
-    $question_date = date('m/d/Y h:i:s a', time());
+    $question_date = date('m/d/Y h:i:s', time());
     $answer = mysqli_real_escape_string($con, trim($request->answer));
+    $answer_date = date('m/d/Y h:i:s', time());
 
 
     // Create.
 
-    $sql = "INSERT INTO `questions`(`id`,`question_author`, `question`, `question_date`, `answer`) VALUES (null,'{$question_author}','{$question}','{$question_date}','{$answer}')";
+    $sql = "INSERT INTO `questions`(`id`,`question_author`, `question`, `question_date`, `answer`, `answer_date`) VALUES (null,'{$question_author}','{$question}','{$question_date}','{$answer}','{$answer_date}')";
 
 
     if(mysqli_query($con,$sql))
@@ -37,6 +38,7 @@ if(isset($postdata) && !empty($postdata))
             'question' => $question,
             'question_date' => $question_date,
             'answer' => null,
+            'answer_date' => $answer_date,
             'id'    => mysqli_insert_id($con)
         ];
         echo json_encode($policy);
