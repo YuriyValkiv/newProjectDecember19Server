@@ -17,7 +17,7 @@ if(isset($postdata) && !empty($postdata))
     // Sanitize.
     $id    = mysqli_real_escape_string($con, (int)$request->id);
     $notification = mysqli_real_escape_string($con, trim($request->notification));
-    $notification_date = date('m/d/Y h:i:s', time());
+    $notification_date = date('d/m/Y H:i', time());
 
     // Update.
     $sql = "UPDATE `notifications` SET `notification`='$notification', `notification_date`='$notification_date' WHERE `id` = '{$id}' LIMIT 1";

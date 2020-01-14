@@ -20,9 +20,9 @@ if(isset($postdata) && !empty($postdata))
     // Sanitize.
     $question_author = mysqli_real_escape_string($con, trim($request->question_author));
     $question = mysqli_real_escape_string($con, trim($request->question));
-    $question_date = date('m/d/Y h:i:s', time());
+    $question_date = date('d/m/Y H:i', time());
     $answer = mysqli_real_escape_string($con, trim($request->answer));
-    $answer_date = date('m/d/Y h:i:s', time());
+    $answer_date = date('d/m/Y H:i', time());
 
 
     // Create.

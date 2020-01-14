@@ -18,9 +18,9 @@ if(isset($postdata) && !empty($postdata))
     $id    = mysqli_real_escape_string($con, (int)$request->id);
     $question_author = mysqli_real_escape_string($con, trim($request->question_author));
     $question = mysqli_real_escape_string($con, trim($request->question));
-    $question_date = date('m/d/Y h:i:s', time());
+    $question_date = date('d/m/Y H:i', time());
     $answer = mysqli_real_escape_string($con, trim($request->answer));
-    $answer_date = date('m/d/Y h:i:s', time());
+    $answer_date = date('d/m/Y H:i', time());
 
     // Update.
     $sql = "UPDATE `questions` SET `question_author`='$question_author', `question`='$question', `answer`='$answer', `answer_date`='$answer_date' WHERE `id` = '{$id}' LIMIT 1";
