@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
-define('DB_HOST', 'mmysql://eu-cdbr-west-02.cleardb.net/DATABASE?reconnect=true');
+define('DB_HOST', 'mysql://eu-cdbr-west-02.cleardb.net/DATABASE?reconnect=true');
 define('DB_USER', 'b772cc46f45e5a');
 define('DB_PASS', 'b98d3d89');
 define('DB_NAME', 'komfort_dim');
